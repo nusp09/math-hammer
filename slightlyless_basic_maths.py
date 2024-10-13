@@ -1,8 +1,38 @@
+rapidf = 0
+ignores_cover = 0
+torrent = 0
+twin_linked = 0
+lethal_hits = 0
+lance = 0
+blast = 0
+melta = 0
+heavy = 0
+hazardous = 0
+devastating_wounds = 0
+sustained_hits = 0
+anti = 0
+
+
+
+
 hit_dic = {1: 1, 2: 5/6, 3: 4/6, 4: 0.5, 5: 2/6, 6: 1/6}
 wound_dic = {1: 1, 2: 5/6, 3: 4/6, 4: 0.5, 5: 2/6, 6: 1/6}
 save_dic = {1: 1, 2: 5/6, 3: 4/6, 4: 0.5, 5: 2/6, 6: 1/6}
 invul_save_dic = {1: 1, 2: 5/6, 3: 4/6, 4: 0.5, 5: 2/6, 6: 1/6}
 fnp_dic = {1: 1, 2: 5/6, 3: 4/6, 4: 0.5, 5: 2/6, 6: 1/6}
+weapon_abilities_dic = {"1" : "rapid fire" ,
+                        "2": "ignores cover",
+                        "3": "torrent",
+                        "4": "twin-linked",
+                        "5": "lethal hits",
+                        "6": "lance",
+                        "7": "blast",
+                        "8": "melta",
+                        "9": "heavy",
+                        "10": "hazardous",
+                        "11": "devastating wounds",
+                        "12": "sustained hits",
+                        "13": "anti",}
 save_bonus = 0 
 hit_bonus = 0
 wound_bonus = 0
@@ -11,12 +41,25 @@ wound_bonus = 0
 invul = input("Do you have an invul save? (y/n): ").strip().lower()
 fellnp = input("Do you have a feel no pain? (y/n): ").strip().lower()
 mods = input("Do you have any hit, wound, or save modifiers? (y/n): ").strip().lower()
+abils = input("Do you have any abilities that modify anything? (y/n): ").strip().lower()
+if abils == 'y':
+    real_abils = []
+    while True:
+        abils = input("what abilities does your weapon have. e.g 1 : rapid fire ,2: ignores cover,3: torrent,4: twin-linked,5: lethal hits,6: lance,7: blast,8: melta,9: heavy,10: hazardous,11: devastating wounds,12: sustained hits,13: anti")
+        real_abils.append(weapon_abilities_dic[abils])
+        again = input("Do you have any more abilities? (y/n): ").strip().lower()
+        if again == 'n':
+            break
 
 attacks = int(input("Enter the number of attacks: "))
 to_hit = int(input("enter what you are hitting on. e.g. 2,3,4 ect: "))
 to_wound = int(input("enter what you are wounding on. e.g. 2,3,4 ect: "))
 ap = int(input("enter the AP of the weapon. e.g. 0,1,2 ect: "))
 save = int(input("enter the save of the target. e.g. 2,3,4 ect: "))
+
+    
+        
+
 if mods == 'y':
     hit_bonus = input("Do you have a hit bonus? (y/n): ").strip().lower()
     if hit_bonus == 'y':
